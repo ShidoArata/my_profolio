@@ -1,0 +1,116 @@
+@keyframes apper {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes Left {
+    100% {
+        opacity: 1;
+        left: 0%;
+    }
+}
+
+@keyframes Right {
+    100% {
+        opacity: 1;
+        right: 0%;
+    }
+}
+
+
+
+@keyframes scrolling {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes scrolling_sheck {
+    from {
+        opacity: 0;
+        scale: 0.5;
+        transform: translateX(100px);
+    }
+
+    to {
+        
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes scrolling_sheck2 {
+    from {
+        opacity: 0;
+        scale: 0.5;
+        transform: translateX(-100px);
+    }
+
+    to {
+        
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+
+@keyframes glowing{
+    0%,100%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 0.75;
+    }
+}
+
+@keyframes shack{
+    0%,100%{
+        transform: rotateZ(0deg);
+    }
+    25%{
+        transform: rotateZ(30deg);
+
+    }
+    50%{
+        transform: rotateZ(90deg);
+
+    }
+    75%{
+        transform: rotateZ(30deg);
+
+    }
+}
+
+
+
+@keyframes set-brocks  {
+    0% {
+        clip-path: polygon(0 0, 10% 5%, 25% 0, 50% 5%, 90% 0, 100% 0, 95% 20%, 100% 50%, 100% 100%, 90% 95%, 50% 100%, 10% 95%, 0 100%, 5% 50%, 0 20%);
+    }
+
+    100% {
+        clip-path: polygon(0 0, 10% 0, 25% 0, 50% 0, 90% 0, 100% 0, 100% 20%, 100% 50%, 100% 100%, 90% 100%, 50% 100%, 10% 100%, 0 100%, 0 50%, 0 20%);
+    }
+}
+
+@keyframes water-waves {
+    0% {
+        clip-path: polygon(0% 0%, 10% 10%, 20% 15%, 30% 10%, 40% 15%, 50% 10%, 60% 15%, 70% 10%, 80% 15%, 90% 10%, 100% 0%);
+    }
+    100% {
+        clip-path: polygon(0% 0%, 10% 5%, 20% 25%, 30% 15%, 40% 5%, 50% 20%, 60% 30%, 70% 20%, 80% 30%, 90% 10%, 100% 0%);
+    }
+}

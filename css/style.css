@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Story Script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#img {
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(203, 218, 231, 0.582);
+    border-radius: 15px;
+
+}
+
+#slider {
+    width: 100%;
+    position: relative;
+}
+
+body{
+    background-color: rgb(39, 38, 38);
+}
+
+.info {
+    z-index: 100;
+    position: absolute;
+    background-color: rgba(160, 188, 212, 0.836);
+    top: 25%;
+    left: 10%;
+    border-radius: 15px;
+    padding: 15px;
+    line-height: 30px;
+    pointer-events: none;
+    width: 40%;
+    height: 25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info a {
+    width: 50%;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgba(97, 187, 187, 0.836);
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px 25%;
+    border-radius: 20px;
+    font-size: large;
+    font-weight: 600;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.info a:hover {
+    background-color: transparent;
+}
+
+.info span{
+    font-weight: 600;
+    color: rgb(4, 158, 107);
+    font-size: xx-large;
+}
+
+
+@media (max-width:1597px) {
+    .info {
+
+        top: 25%;
+        left: 0;
+        width: 25%;
+        height: fit-content;
+    }
+
+}
+
+/* ==================sign up=================== */
+
+
+.body-signup{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(195, 224, 214);
+}
+
+
+.form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: rgb(140, 212, 212);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.form input{
+    margin: 10px 0;
+    height: 25px;
+    padding: 15px;
+    border: hidden;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+    background-color: rgba(191, 231, 218, 0.952);
+}
+
+.form input[type="password"]{
+    font-family: system-ui;
+}
+
+.form input:hover{
+    background-color: rgb(158, 231, 207);
+
+}
+
+.form button{
+    padding: 10px;
+    border-radius: 10px;
+    border: hidden;
+    cursor: pointer;
+    background-color: rgba(17, 167, 119, 0.952);
+    font-size: large;
+    transition: all 0.2s linear;
+
+}
+
+
+.form button:hover{
+    background-color: rgb(13, 216, 152);
+
+}
+
+
