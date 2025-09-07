@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
+    <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+
+<body onload="setup();">
+    <header>
+        <div class="top"></div>
+        <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+            </ul>
+            <select id="serviceSelect">
+                <option value="">Services</option>
+                <option value="service1.html">Create app</option>
+                <option value="service2.html">Create game</option>
+            </select>
+            <select onchange="change_theme(this.value)">
+                <option value="../../css/style-dark.css">Theme</option>
+                <option value="../../css/style-light.css">Light</option>
+                <option value="../../css/style-dark.css">Dark</option>
+                <option value="../../css/style-colorful.css">colorful</option>
+            </select>
+            <button type="button" id="openmodal">contact</button>
+        </nav>
+    </header>
+
+
+
+    <div class="container text-center">
+        <div class="spacing"></div>
+        <div class="b-box">
+            <div class="row justify-content-center  p-4">
+                <div class="col">
+                    <p>
+                        This is a service to create Games for you, you can choose the type of Game you
+                        want, and
+                        we will create it for you with a short time.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- ================ step 1 ============= -->
+                <div id="step-1" class="step ">
+                    <h3>
+                        Name of the GAME
+                    </h3>
+                    <input type="text" id="gameName" class="form-control mb-3" placeholder="Enter application name">
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">next</button>
+                </div>
+                <!-- ================ step 2 ============= -->
+                <div id="step-2" class="step d-none">
+                    <h3>
+                        Type of Game
+                    </h3>
+                    <select id="gameType" class="form-control mb-3">
+                        <option>Action</option>
+                        <option>Adventure</option>
+                        <option>Puzzle</option>
+                        <option>Role-Playing (RPG)</option>
+                        <option>Simulation</option>
+                        <option>Strategy</option>
+                        <option>Sports / Racing</option>
+                        <option>Horror</option>
+                        <option>Sandbox / Open World</option>
+                        <option>Multiplayer Online</option>
+                        <option>Other</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(1)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)">next</button>
+
+                </div>
+                <!-- ================ step 3 ============= -->
+                <div id="step-3" class="step d-none">
+                    <h3>
+                        What features do you want?
+                    </h3>
+                    <textarea id="features" class="form-control mb-3" placeholder="Enter features"></textarea>
+                    <button class="btn btn-secondary" onclick="prevStep(2)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(4)">next</button>
+                </div>
+                <!-- ================ step 4 ============= -->
+                <div id="step-4" class="step d-none">
+                    <h3>
+                        Game Perspective
+                    </h3>
+                    <select id="perspective" class="form-control mb-3">
+                        <option>First Person (FPS)</option>
+                        <option>Third Person</option>
+                        <option>Top-down</option>
+                        <option> Side-scrolling (2D)</option>
+                        <option>Isometric</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(3)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(5)">next</button>
+                </div>
+                <!-- ================ step 5 ============= -->
+                <div id="step-5" class="step d-none">
+                    <h3>
+                        Graphics Style
+                    </h3>
+                    <select id="graphics" class="form-control mb-3">
+                        <option>Realistic</option>
+                        <option>Cartoon / Stylized</option>
+                        <option>Pixel Art</option>
+                        <option>2D Flat</option>
+                        <option>3D</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(4)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(6)">next</button>
+                </div>
+                <!-- ================ step 6 ============= -->
+                <div id="step-6" class="step d-none">
+                    <h3>
+                        Platform
+                    </h3>
+                    <select id="Platform" class="form-control mb-3">
+                        <option>PC (Windows, Mac, Linux)</option>
+                        <option>Console (PlayStation, Xbox, Nintendo)</option>
+                        <option>Mobile (Android, iOS)</option>
+                        <option>Web Browser</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(5)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(7)">next</button>
+                </div>
+                <!-- ================ step 7 ============= -->
+                <div id="step-7" class="step d-none">
+                    <h3>
+                        Theme
+                    </h3>
+                    <select id="theme" class="form-control mb-3">
+                        <option>Fantasy</option>
+                        <option>Sci-Fi</option>
+                        <option>Modern / Realistic</option>
+                        <option>Historical</option>
+                        <option>Horror</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(6)">previous</button>
+                    <button class="btn btn-success" onclick="finish_game()">finish</button>
+                </div>
+
+
+                <!-- Result Modal -->
+                <div class="modal fade " data-bs-theme="light" id="resultModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-start ">
+                        <div class="modal-content bg-secondary">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Your Game Summary</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="modalContent"></div>
+                                <hr>
+                                <label for="userEmail" class="form-label">Enter your email</label>
+                                <input type="email" id="userEmail" class="form-control" placeholder="your@email.com">
+                                <small class="text-muted">We will send the result to your email later.</small>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-success" onclick="sendEmail()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacing"></div>
+
+    </div>
+
+
+    <!-- ======================== cards ========================= -->
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3  g-4 ">
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game1.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Tic-Tac-toe</h2>
+                        <p class="card-text">This is a game that you can play with yours friends or with an AI.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><img src="../../images/img-services/Unity_Technologies_logo.svg"
+                                width="70px" alt=""></a>
+                        <a href="#" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#download-game">download
+                            game</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game2.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Chess Game</h2>
+                        <p class="card-text">A 2D digital interface of a chess game. The screen shows a chessboard with
+                            black and white pieces in the middle of a match. Simple, elegant design with wooden board
+                            texture.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game3.jpg" alt=gamep img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Platformer Game</h2>
+                        <p class="card-text">A colorful 2D side-scrolling platformer game interface. A character is
+                            running and jumping over obstacles, collecting coins and avoiding enemies. Bright
+                            cartoon-style background with hills and clouds.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game4.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Sudoku Game</h2>
+                        <p class="card-text">A mobile game interface for Sudoku. The screen shows a 9x9 grid with some
+                            numbers already filled in, empty cells for the player to complete, and buttons for entering
+                            numbers. Clean white and gray theme with simple design.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game5.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Racing Game</h2>
+                        <p class="card-text">A 3D racing game interface. The screen shows a red sports car on a highway
+                            track with speedometer and lap counter displayed on the screen. Realistic graphics with
+                            motion blur effect.</p>
+                        <a class="btn my-btn">C++</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game6.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">RPG Game</h2>
+                        <p class="card-text">A fantasy RPG mobile game interface. The screen shows a warrior character
+                            standing in a magical forest, health and mana bars at the top, inventory icons at the
+                            bottom, and a quest log on the side. Rich, detailed fantasy art.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/game7.png" alt="game img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Puzzle Game</h2>
+                        <p class="card-text">A colorful 2D puzzle game interface. The screen shows blocks of different
+                            shapes and colors that the player must arrange, with a score counter at the top. Playful,
+                            bright design with cartoon style.</p>
+                        <a class="btn my-btn">C++</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================= download game modal =================================================-->
+    <div class="modal fade" data-bs-theme="dark" id="download-game" tabindex="-1" aria-labelledby="title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="title">Download X-O GAme</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-10">
+                            <img src="../../images/img-services/downloadble/down-game-2-1.png" alt="img">
+                        </div>
+                        <div class="col-12  text-center">
+                            <h2>Download Game</h2>
+                            <p>
+                                This is an exe game file that you can play on your computer without any
+                                installation. Just download it and uncompress the file to start playing!
+                            </p>
+                            <p>
+                                <strong>Price:</strong> Free
+                            </p>
+                            <a class="btn btn-success" href="../../download_things/XO GAME.rar" download>Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="spacing"></div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="../../images/img-services/downloadble/down-game-2-2.png" alt="img">
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2>OR Download Game</h2>
+                            <p>
+                                This is an exe game file that you can play on your computer with
+                                installation.
+                            </p>
+                            <p>
+                                <strong>Price:</strong> Free
+                            </p>
+                            <a class="btn btn-success" href="../../download_things/XOGAME SETUP.exe" download>Buy
+                                Now</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of modal -->
+
+
+
+    <footer class="footer-home">
+        <p>&copy; 2025 ASR. All rights reserved.</p>
+        <p>
+            Follow us on <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"
+                    style="color: var(--c-gold);"></i></a>, <a href="https://twitter.com" target="_blank"><i
+                    class="fa-brands fa-twitter fa-xl" style="color: var(--c-gold);"></i></a>,
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
+        </p>
+    </footer>
+    <section>
+        <!-- contact modal -->
+
+        <div id="myModal" class="my-modal">
+            <div class="my-modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <div class="contact-main">
+                    <form action="#" method="post"
+                        onsubmit="alert('Message sent successfully'); location.reload(); return false;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <br>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="30" title="right your Message"
+                            required></textarea>
+                        <br>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-gold);"></i></a>
+                <a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
+                        style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands  fa-2xl fa-instagram" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-gold);"></i></a>
+                <a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
+                        style="color: var(--c-gold);"></i></a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../javascript/script.js"></script>
+</body>
+
+</html>

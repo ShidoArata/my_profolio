@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
+<script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="setup();">
+    <header>
+        <div class="top"></div>
+        <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="../services/logs.html">logs</a></li>
+            </ul>
+            <select id="serviceSelect">
+                <option value="">Services</option>
+                <option value="../services/service1.html">Create app</option>
+                <option value="../services/service2.html">Create game</option>
+            </select>
+            <select onchange="change_theme(this.value)" placeholder="Theme">
+                <option value="../../css/style-dark.css">Theme</option>
+                <option value="../../css/style-light.css">Light</option>
+                <option value="../../css/style-dark.css">Dark</option>
+                <option value="../../css/style-colorful.css">colorful</option>
+            </select>
+            <button type="button" id="openmodal">contact</button>
+        </nav>
+    </header>
+
+    
+    <main class="container">
+        <div class="spacing"></div>
+        <div class="my-row">
+            <div class="my-col my-col1 text-box">
+                <h1>Who am I?</h1>
+                <p>
+                    I'm Motaher <br><br>
+                    A creative and detail-oriented developer with a strong passion for technology. <br><br>
+                    I enjoy turning ideas into real applications, building games, and exploring new tools. <br><br>
+                    Welcome to my personal portfolio — a place where I share my journey, skills, and projects.
+                </p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-main-text);"></i></a>
+                    </li>
+                    <li><a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
+                                style="color: var(--c-main-text);"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-2xl fa-instagram" style="color: var(--c-main-text);"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-main-text);"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-main-text);"></i></a>
+                    </li>
+                    <li><a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
+                                style="color: var(--c-main-text);"></i></a></li>
+                </ul>
+            </div>
+            <div class="my-col my-col2 ">
+                <img src="../../images/my_photo.png" alt="photo for me" />
+            </div>
+        </div>
+    </main>
+
+
+
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+
+    <footer class="footer-home">
+        <p>&copy; 2025 ASR. All rights reserved.</p>
+        <p>
+            Follow us on <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"
+                    style="color: var(--c-gold);"></i></a>, <a href="https://twitter.com" target="_blank"><i
+                    class="fa-brands fa-twitter fa-xl" style="color: var(--c-gold);"></i></a>,
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
+        </p>
+    </footer>
+    <section>
+        <!-- contact modal -->
+    
+        <div id="myModal" class="my-modal">
+            <div class="my-modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <div class="contact-main">
+                    <form action="#" method="post"
+                        onsubmit="alert('Message sent successfully'); location.reload(); return false;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <br>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="30" title="right your Message"
+                            required></textarea>
+                        <br>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-gold);"></i></a>
+                <a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
+                        style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands  fa-2xl fa-instagram" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-gold);"></i></a>
+                <a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
+                        style="color: var(--c-gold);"></i></a>
+            </div>
+        </div>
+    </section>
+    <script src="../../javascript/script.js"></script>
+</body>
+
+</html>

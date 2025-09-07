@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Logs</title>
+    <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
+</head>
+<body onload="show_logs();setup();">
+    <header>
+        <div class="top"></div>
+        <a href="../home/home.html"><img src="../../images/ASR icon.png" alt="logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+            </ul>
+             <select onchange="change_theme(this.value)" placeholder="Theme">
+                <option value="../../css/style-dark.css">Theme</option>
+                <option value="../../css/style-light.css">Light</option>
+                <option value="../../css/style-dark.css">Dark</option>
+                <option value="../../css/style-colorful.css">colorful</option>
+            </select>
+        </nav>
+    </header>
+
+    <div class="container" id="add_logs"></div>
+
+    <script src="../../javascript/script.js"></script>
+</body>
+</html>

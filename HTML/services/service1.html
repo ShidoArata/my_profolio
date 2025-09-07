@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
+    <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="setup();">
+    <header>
+        <div class="top"></div>
+        <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+            </ul>
+            <select id="serviceSelect">
+                <option value="">Services</option>
+                <option value="service1.html">Create app</option>
+                <option value="service2.html">Create game</option>
+            </select>
+            <select onchange="change_theme(this.value)">
+                <option value="../../css/style-dark.css">Theme</option>
+                <option value="../../css/style-light.css">Light</option>
+                <option value="../../css/style-dark.css">Dark</option>
+                <option value="../../css/style-colorful.css">colorful</option>
+            </select>
+            <button type="button" id="openmodal">contact</button>
+        </nav>
+    </header>
+
+
+    <div class="container text-center">
+        <div class="spacing"></div>
+
+        <div class="b-box">
+            <p>
+                This is a service to create applications for you, you can choose the type of application you
+                want, and
+                we will create it for you with a short time.
+            </p>
+
+            <hr>
+            <div class="container p-5">
+                <!-- ================ step 1 ============= -->
+                <div id="step-1" class="step ">
+                    <h3>
+                        Name of the application?
+                    </h3>
+                    <input type="text" id="appName" class="form-control mb-3" placeholder="Enter application name">
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">next</button>
+                </div>
+                <!-- ================ step 2 ============= -->
+                <div id="step-2" class="step d-none">
+                    <h3>
+                        Type of application?
+                    </h3>
+                    <select id="appType" class="form-control mb-3">
+                        <option>Desktop application</option>
+                        <option>Web application</option>
+                        <option>Utility / Tool</option>
+                        <option>Multimedia</option>
+                        <option>Educational / Learning</option>
+                        <option>Social / Communication</option>
+                        <option>Other</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(1)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)">next</button>
+
+                </div>
+                <!-- ================ step 3 ============= -->
+                <div id="step-3" class="step d-none">
+                    <h3>
+                        What features do you want?
+                    </h3>
+                    <textarea id="features" class="form-control mb-3" placeholder="Enter features"></textarea>
+                    <button class="btn btn-secondary" onclick="prevStep(2)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(4)">next</button>
+                </div>
+                <!-- ================ step 4 ============= -->
+                <div id="step-4" class="step d-none">
+                    <h3>
+                        Choose a theme
+                    </h3>
+                    <select id="theme" class="form-control mb-3">
+                        <option>Dark</option>
+                        <option>Light</option>
+                        <option>Custom</option>
+                        <option>Material Design</option>
+                        <option>Flat UI</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(3)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(5)">next</button>
+                </div>
+                <!-- ================ step 5 ============= -->
+                <div id="step-5" class="step d-none">
+                    <h3>
+                        Type of database to store data
+                    </h3>
+                    <select id="database" class="form-control mb-3">
+                        <option>JSON</option>
+                        <option>XML</option>
+                        <option>SQLite</option>
+                        <option>MySQL</option>
+                        <option>PostgreSQL</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(4)">previous</button>
+                    <button class="btn btn-primary" onclick="nextStep(6)">next</button>
+                </div>
+                <!-- ================ step 6 ============= -->
+                <div id="step-6" class="step d-none">
+                    <h3>
+                        Platform to run the application
+                    </h3>
+                    <select id="Platform" class="form-control mb-3">
+                        <option>iOS</option>
+                        <option>Android</option>
+                        <option>Linux</option>
+                        <option>Mac</option>
+                        <option>Windows</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="prevStep(5)">previous</button>
+                    <button class="btn btn-success" onclick="finish_app()">finish</button>
+                </div>
+
+                <!-- Result Modal -->
+                <div class="modal fade " data-bs-theme="light" id="resultModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-start ">
+                        <div class="modal-content bg-secondary">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Your Application Summary</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="modalContent"></div>
+                                <hr>
+                                <label for="userEmail" class="form-label">Enter your email</label>
+                                <input type="email" id="userEmail" class="form-control" placeholder="your@email.com">
+                                <small class="text-muted">We will send the result to your email later.</small>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-success" onclick="sendEmail()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app1 (Custom).png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">store management system</h2>
+                        <p class="card-text">User Roles:
+                            Customer: Can browse and purchase products from the store.
+
+                            Employee: Works in the store and helps manage operations.
+
+                            Manager: Has advanced permissions to edit user data and oversee store activities.</p>
+                        <a class="btn my-btn">C++</a>
+                        <a class="btn my-btn"><i class="fa-solid fa-database fa-xl"></i>SQLite</a>
+                        <a href="#" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#download-app">download
+                            app</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app2.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Calculator App</h2>
+                        <p class="card-text">"A clean 2D digital illustration of a modern calculator app interface. The
+                            screen shows a grid of number buttons (0–9) and basic operators (+, −, ×, ÷) with a result
+                            display at the top. Minimalist flat design, light color theme.</p>
+                        <a class="btn my-btn"><i class="fa-brands fa-python fa-xl"></i>Python</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app3.jpeg" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Weather App</h2>
+                        <p class="card-text">A modern app interface showing a weather forecast. The screen displays
+                            current temperature, sunny weather icon, weekly forecast with small icons for sun, clouds,
+                            and rain. Minimalist, clean design with light blue and white colors.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity fa-xl"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app4.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Music Player App</h2>
+                        <p class="card-text">A app interface showing a music player. The screen has album artwork in the
+                            center, playback controls (play, pause, next, previous), and a progress bar at the bottom.
+                            Stylish dark theme with neon accents.</p>
+                        <a class="btn my-btn"><i class="fa-brands fa-python fa-xl"></i>Python</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app5.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Notes App</h2>
+                        <p class="card-text">A simple app interface for taking notes. The screen shows a list of notes
+                            with titles and dates, plus a floating button to create a new note. Clean, minimalist flat
+                            design in pastel colors.</p>
+                        <a class="btn my-btn">C++</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app6.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Chat App</h2>
+                        <p class="card-text">A modern messaging app interface. The screen shows a conversation between
+                            two users with text bubbles, a typing indicator, and a bottom input field with a send
+                            button. Minimalist, light theme with smooth rounded design.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity fa-xl"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app7.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">To-Do List App</h2>
+                        <p class="card-text">A simple 2D digital illustration of a mobile To-Do List app interface. The
+                            screen shows a list of tasks with checkboxes, some tasks marked as completed, and an input
+                            field at the top to add a new task. Minimalist flat design, soft pastel colors.</p>
+                        <a class="btn my-btn">C++</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="../../images/img-services/app8.png" alt="app img" class="card-img-top">
+                    <div class="card-body my-card-body">
+                        <h2 class="card-title">Product Management App</h2>
+                        <p class="card-text">A clean 2D digital illustration of a mobile Product Management app
+                            interface. The screen shows a search bar at the top and a scrollable list of products with
+                            names, prices, and small icons or images. Flat, modern design with light colors.</p>
+                        <a class="btn my-btn">C#</a>
+                        <a class="btn my-btn"><i class="fa-brands fa-unity fa-xl"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================== download app modal =====================================-->
+    <div class="modal fade" data-bs-theme="dark" id="download-app" tabindex="-1" aria-labelledby="title-app"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="title-app">Download app</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- ==================== step 1 ======================= -->
+                    <div class="row ">
+                        <div class="col-12 ">
+                            <img src="../../images/img-services/downloadble/down-app-1-0.png" alt="img">
+                        </div>
+                        <div class="col-12  text-center">
+                            <h2>Download App</h2>
+                            <p>
+                                This is an exe app file that you can play on your computer without any
+                                installation. Just download it and uncompress the file to start using
+                                the app
+                                <b>Open Store folder</b>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 2 ======================= -->
+                    <div class="spacing"></div>
+
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-1.png" alt="img">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                Open Clothing Store.exe
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 3 ======================= -->
+                    <div class="spacing"></div>
+
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-2.png" alt="img "
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                Click on sign up to create a new account
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 4 ======================= -->
+
+                    <div class="spacing"></div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-3.png" alt="img"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                Fill the form with your information and click on sign up
+                                then to activate your account you need to click on &quot;I have an
+                                account&quot;
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 5 ======================= -->
+                    <div class="spacing"></div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-4.png" alt="img"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                write &quot;Store &quot; as user name and &quot;Store1234&quot; as
+                                password <br>
+                                then click on login
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 6 ======================= -->
+                    <div class="spacing"></div>
+
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-5.png" alt="img"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                Click on Active user to activate your account
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 7 ======================= -->
+                    <div class="spacing"></div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-6.png" alt="img"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                Then you can write the user name of the account to activate it, Then you
+                                click on add
+                            </p>
+                        </div>
+                    </div>
+                    <!-- ==================== step 8 ======================= -->
+                    <div class="spacing"></div>
+
+                    <div class="row ">
+                        <div class="col-12">
+                            <img src="../../images/img-services/downloadble/down-app-1-7.png" alt="img"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-12  text-center">
+                            <p>
+                                You can say that you can enter multiple usernames then click on activate
+                                all now you can use that account whichever it was sign up with employee
+                                or customer
+                            </p>
+                            <a class="btn btn-success" href="../../download_things/Store.zip" download>Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of modal -->
+
+    <div class="spacing"></div>
+
+
+
+    <footer class="footer-home">
+        <p>&copy; 2025 ASR. All rights reserved.</p>
+        <p>
+            Follow us on <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"
+                    style="color: var(--c-gold);"></i></a>, <a href="https://twitter.com" target="_blank"><i
+                    class="fa-brands fa-twitter fa-xl" style="color: var(--c-gold);"></i></a>,
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
+        </p>
+    </footer>
+    <section>
+        <!-- contact modal -->
+        <div id="myModal" class="my-modal">
+            <div class="my-modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <div class="contact-main">
+                    <form action="#" method="post"
+                        onsubmit="alert('Message sent successfully'); location.reload(); return false;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <br>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="30" title="right your Message"
+                            required></textarea>
+                        <br>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-gold);"></i></a>
+                <a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
+                        style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands  fa-2xl fa-instagram" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-gold);"></i></a>
+                <a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
+                        style="color: var(--c-gold);"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../javascript/script.js"></script>
+</body>
+
+</html>
