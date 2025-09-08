@@ -65,7 +65,8 @@ header>a>img {
     padding: 15px;
     border-radius: 15px;
     border: 1px solid var(--c-gold);
-    background-color: #2b3836;
+    background-color: #06f8d4;
+    /* background-color: #2b3836; */
     justify-self: center;
     width: 60%;
     display: flex;
