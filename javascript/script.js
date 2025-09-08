@@ -1,3 +1,21 @@
+// ================ start nav menu ======================
+
+let showen = false;
+
+function show_menu() {
+	let menu = document.getElementById('nav');
+	if (showen) {
+		menu.style.display = 'none';
+		showen = false;
+	}else{
+		menu.style.display = 'flex';
+		showen = true;
+	}
+}
+
+
+// ================ end nav menu ======================
+
 // ================ start services quations ======================
 function nextStep(step) {
 	document.querySelectorAll('.step').forEach(s => s.classList.add('d-none'));
@@ -17,9 +35,9 @@ function finish_app() {
 		database: document.getElementById('database').value,
 		Platform: document.getElementById('Platform').value
 	};
-	
+
 	add_log(data);
-	
+
 	let summary = `
     The name of the app is ${data.name}.<br>
     The type is ${data.type}.<br>
@@ -28,9 +46,9 @@ function finish_app() {
     The features are: ${data.features.join(",")}.
     The Platform is ${data.Platform}.<br>
 	`;
-	
+
 	document.getElementById('modalContent').innerHTML = summary;
-	
+
 	// show modal
 	let resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
 	resultModal.show();
@@ -56,9 +74,9 @@ function finish_game() {
 		graphics: document.getElementById('graphics').value,
 		Platform: document.getElementById('Platform').value
 	};
-	
+
 	add_log(data);
-	
+
 	let summary = `
     The name of the game is ${data.name}.<br>
     The type is ${data.type}.<br>
@@ -67,7 +85,7 @@ function finish_game() {
     The features are: ${data.features.join(", ")}.
     The Platform is ${data.Platform}.<br>
 	`;
-	
+
 	document.getElementById('modalContent').innerHTML = summary;
 
 	// show modal
@@ -81,7 +99,7 @@ function finish_game() {
 
 // =========================start= set up wen page ==============
 
-function setup(){
+function setup() {
 	var file = JSON.parse(localStorage.WebTheme);
 	document.getElementById("theme").setAttribute("href", file);
 

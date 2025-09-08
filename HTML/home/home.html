@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
-<script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="setup();">
     <header>
         <div class="top"></div>
-        <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
-        <nav class="navbar">
+        <div class="logo">
+            <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+            <button onclick="show_menu()" id="menu"><i class="fa-solid fa-2xl fa-bars " ></i></button>
+        </div>
+        <nav id="nav" class="navbar">
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="../about/about.html">About</a></li>
@@ -34,7 +37,7 @@
         </nav>
     </header>
 
-    
+
     <main class="container">
         <div class="spacing"></div>
         <div class="my-row">
@@ -83,7 +86,7 @@
     </footer>
     <section>
         <!-- contact modal -->
-    
+
         <div id="myModal" class="my-modal">
             <div class="my-modal-content">
                 <span class="close" id="closeBtn">&times;</span>

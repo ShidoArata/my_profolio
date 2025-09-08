@@ -54,8 +54,21 @@ li {
 }
 
 /* set hesading and navbar */
-header>a>img {
-    display: block;
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 10px;
+    z-index: 200;
+}
+
+
+header>.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 80px;
     width: auto;
     margin-bottom: 15px;
@@ -64,8 +77,27 @@ header>a>img {
     background-color: var(--c-box);
     justify-self: center;
     box-shadow: 0 0 20px #3fb0f2;
+    opacity: 0;
+    animation: apper 0.5s linear 1s forwards;
+    animation-name: shack, apper;
 }
 
+header>.logo> a>img {
+    height: 80px;
+    width: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--c-box);
+    box-shadow: 0 0 20px #3fb0f2;
+}
+
+#menu{
+    display: none;
+    margin-left: 20px;
+    color: inherit;
+    border: none;
+}
 
 .navbar {
     height: 40px;
@@ -104,10 +136,16 @@ button {
 }
 
 @media (max-width: 768px) {
+    #menu{
+        display: block;
+    }
     .navbar {
+        display: none;
         flex-direction: column;
         height: auto;
         gap: 10px;
+        opacity: 1;
+        animation: none;
     }
 
     .navbar>select {

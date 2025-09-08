@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
 
-    
+
     <link rel="stylesheet" id="theme" href="../../css/style-light.css" />
-<script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="setup();">
     <header>
         <div class="top"></div>
-        <a href="../home/home.html"><img src="../../images/ASR icon.png" alt="logo"></a>
-        <nav class="navbar">
+        <div class="logo">
+            <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+            <button onclick="show_menu()" id="menu"><i class="fa-solid fa-2xl fa-bars "></i></button>
+        </div>
+        <nav id="nav" class="navbar">
             <ul>
                 <li><a href="../home/home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -35,7 +38,7 @@
         </nav>
     </header>
 
-    
+
     <main class="container">
         <div class="spacing"></div>
         <div class="m-row">
@@ -46,19 +49,19 @@
                     Currently, I'm expanding my knowledge in C# and working with Unity and Godot to create interactive
                     games.
                 </p>
-                
+
             </div>
             <div class="m-col m-col-img"><img src="../../images/about_img/Python.png" alt="Python"></div>
         </div>
-        
+
         <div class="spacing"></div>
         <hr>
         <div class="spacing"></div>
-        
+
         <div class="m-row">
             <div class="m-col text-box">
                 <p>
-                    
+
                     I have a deep interest in both software development and game design, and I enjoy building projects
                     from scratch —
                     whether it's desktop applications, database systems, or 2D/3D games.
@@ -66,38 +69,38 @@
             </div>
             <div class="m-col m-col-img"><img src="../../images/about_img/Godot.png" alt="Godot"></div>
         </div>
-        
-        
+
+
         <div class="spacing"></div>
         <hr>
         <div class="spacing"></div>
 
-        
+
         <div class="m-row">
             <div class="m-col text-box">
                 <p>
-                    
+
                     In addition to coding, I also explore design tools like Blender,
                     and I'm learning more about database management using SQLite and MySQL.
-                    
+
                 </p>
             </div>
             <div class="m-col m-col-img"><img src="../../images/about_img/Blender.png" alt="Blender"></div>
         </div>
-        
-        
+
+
         <div class="spacing"></div>
         <hr>
         <div class="spacing"></div>
-        
-        
+
+
         <div class="m-row">
             <div class="m-col text-box">
                 <p>
-                    
+
                     My long-term goal is to grow as a professional developer,
                     build innovative projects, and share my work with the community.
-                    
+
                 </p>
             </div>
             <div class="m-col m-col-img"><img src="../../images/about_img/MySQL.png" alt="MySQL"></div>
@@ -111,43 +114,43 @@
             Follow us on <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"
                     style="color: var(--c-gold);"></i></a>, <a href="https://twitter.com" target="_blank"><i
                     class="fa-brands fa-twitter fa-xl" style="color: var(--c-gold);"></i></a>,
-                    <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
-                </p>
-            </footer>
-            <section>
-                <!-- contact modal -->
-                <div id="myModal" class="my-modal">
-                    <div class="my-modal-content">
-                        <span class="close" id="closeBtn">&times;</span>
-                        <div class="contact-main">
-                            <form action="#" method="post"
-                                onsubmit="alert('Message sent successfully'); location.reload(); return false;">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" required>
-                                <br>
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required>
-                                <br>
-                                <label for="message">Message:</label>
-                                <textarea id="message" name="message" rows="4" cols="30" title="right your Message"
-                                    required></textarea>
-                                <br>
-                                <button type="submit">Send Message</button>
-                            </form>
-                        </div>
-                        <a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-gold);"></i></a>
-                        <a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
-                                style="color: var(--c-gold);"></i></a>
-                        <a href="#"><i class="fa-brands  fa-2xl fa-instagram" style="color: var(--c-gold);"></i></a>
-                        <a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-gold);"></i></a>
-                        <a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-gold);"></i></a>
-                        <a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
-                                style="color: var(--c-gold);"></i></a>
-                    </div>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
+        </p>
+    </footer>
+    <section>
+        <!-- contact modal -->
+        <div id="myModal" class="my-modal">
+            <div class="my-modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <div class="contact-main">
+                    <form action="#" method="post"
+                        onsubmit="alert('Message sent successfully'); location.reload(); return false;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <br>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="30" title="right your Message"
+                            required></textarea>
+                        <br>
+                        <button type="submit">Send Message</button>
+                    </form>
                 </div>
-            </section>
-            <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
-            <script src="../../javascript/script.js"></script>
-        </body>
-        
-        </html>
+                <a href="#"><i class="fa-brands fa-2xl fa-facebook" style="color: var(--c-gold);"></i></a>
+                <a href="https://wa.me/097779125294"><i class="fa-brands fa-2xl fa-whatsapp"
+                        style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands  fa-2xl fa-instagram" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-twitter" style="color: var(--c-gold);"></i></a>
+                <a href="#"><i class="fa-brands fa-2xl fa-linkedin" style="color: var(--c-gold);"></i></a>
+                <a href="https://github.com/ShidoArata"><i class="fa-brands fa-2xl fa-github"
+                        style="color: var(--c-gold);"></i></a>
+            </div>
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/5613ef00f5.js" crossorigin="anonymous"></script>
+    <script src="../../javascript/script.js"></script>
+</body>
+
+</html>

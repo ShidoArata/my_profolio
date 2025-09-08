@@ -13,8 +13,11 @@
 <body onload="setup();">
     <header>
         <div class="top"></div>
-        <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
-        <nav class="navbar">
+        <div class="logo">
+            <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
+            <button onclick="show_menu()" id="menu"><i class="fa-solid fa-2xl fa-bars "></i></button>
+        </div>
+        <nav id="nav" class="navbar">
             <ul>
                 <li><a href="../home/home.html">Home</a></li>
                 <li><a href="../about/about.html">About</a></li>

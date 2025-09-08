@@ -44,8 +44,21 @@ li {
 
 /* set hesading and navbar and up button */
 
-header>a>img {
-    display: block;
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 10px;
+    z-index: 200;
+}
+
+
+
+header>.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 80px;
     width: auto;
     margin-bottom: 15px;
@@ -59,14 +72,29 @@ header>a>img {
     animation-name: shack, apper;
 }
 
+header>.logo> a>img {
+    height: 80px;
+    width: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--c-box);
+    box-shadow: 0 0 20px #364046;
+}
+
+#menu{
+    display: none;
+    margin-left: 20px;
+    color: inherit;
+    border: none;
+}
 
 .navbar {
     height: 40px;
     padding: 15px;
     border-radius: 15px;
     border: 1px solid var(--c-gold);
-    background-color: #06f8d4;
-    /* background-color: #2b3836; */
+    background-color: #2b3836;
     justify-self: center;
     width: 60%;
     display: flex;
@@ -101,10 +129,16 @@ button {
 }
 
 @media (max-width: 768px) {
+    #menu{
+        display: block;
+    }
     .navbar {
+        display: none;
         flex-direction: column;
         height: auto;
         gap: 10px;
+        opacity: 1;
+        animation: none;
     }
 
     .navbar>select {
