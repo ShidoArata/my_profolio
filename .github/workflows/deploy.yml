@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main # كل مرة تعمل push للـ main يشتغل
+      - main
 
 jobs:
   deploy:
@@ -16,11 +16,12 @@ jobs:
       - name: Prepare files
         run: |
           mkdir build
-          cp -r HTML/home/* build/   # ينسخ كل الملفات من HTML/home إلى build
+          cp -r HTML/home/* build/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
           publish_branch: gh-pages
+          publish_dir: ./build
+          force_orphan: true # يتأكد إنه ينشئ commit جديد نظيف
