@@ -67,8 +67,7 @@ header>.logo {
     opacity: 0;
     position: relative;
     right: 110%;
-    animation: apper 1s forwards 0.5s ;
-    animation: Right 1s forwards  0.5s;
+    animation: apper 1s forwards 0.5s , Right 1s forwards  0.5s;
 }
 
 header>.logo> a>img {
@@ -99,6 +98,9 @@ header>.logo> a>img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    right: 110%;
+    animation: Right 1s forwards  0.5s;
 }
 
 .navbar ul {
@@ -133,8 +135,7 @@ button {
         flex-direction: column;
         height: auto;
         gap: 10px;
-        opacity: 1;
-        animation: none;
+        animation-delay: 0s;
     }
 
     .navbar>select {
@@ -359,49 +360,52 @@ label {
 }
 
 .my-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "info img";
 }
 
+
 .my-col {
-    width: 40%;
-    max-height: 600px;
     opacity: 0;
     position: relative;
     right: 110%;
-    animation: apper 1s forwards 0.5s ;
     animation: Right 1s forwards  0.5s;
 }
 
 .my-col1 {
     padding: 15px;
     overflow: hidden;
+    grid-area: info;
 }
 .my-col2 {
+    
     background-color: #beb29b;
-    clip-path: circle();
-    opacity: 0;
-    position: relative;
-    right: 110%;
-    animation: Right 0.5s linear 1.2s forwards;
+    clip-path: circle(50%);
+    grid-area: img;
+    
 }
 
 .my-col2 img {
     border-radius: 15px;
-    max-width: 600px;
+    
 }
 
 @media (max-width: 908px) {
-    .my-col {
-        width: 90%;
+     .my-row {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "img"
+            "info";
+    }
+    .my-col1 {
+        width: 9;
     }
 
     .my-col2 {
         order: -1;
-        width: max-content;
+        /* width:auto; */
+        width: 90%;
     }
 }
 
