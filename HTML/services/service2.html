@@ -17,7 +17,7 @@
             <a href="#"><img src="../../images/ASR icon.png" alt="logo"></a>
             <button onclick="show_menu()" id="menu"><i class="fa-solid fa-2xl fa-bars "></i></button>
         </div>
-        <nav id="nav" class="navbar">
+        <nav id="nav" class="navbar2">
             <ul>
                 <li><a href="../home/home.html">Home</a></li>
                 <li><a href="../about/about.html">About</a></li>
@@ -153,28 +153,6 @@
                 </div>
 
 
-                <!-- Result Modal -->
-                <div class="modal fade " data-bs-theme="light" id="resultModal" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-start ">
-                        <div class="modal-content bg-secondary">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Your Game Summary</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="modalContent"></div>
-                                <hr>
-                                <label for="userEmail" class="form-label">Enter your email</label>
-                                <input type="email" id="userEmail" class="form-control" placeholder="your@email.com">
-                                <small class="text-muted">We will send the result to your email later.</small>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                <button class="btn btn-success" onclick="sendEmail()">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="spacing"></div>
@@ -280,11 +258,11 @@
         </div>
     </div>
 
-
+    
     <!-- ========================================= download game modal =================================================-->
     <div class="modal fade" data-bs-theme="dark" id="download-game" tabindex="-1" aria-labelledby="title"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable ">
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="title">Download X-O GAme</h1>
@@ -334,8 +312,8 @@
         </div>
     </div>
     <!-- end of modal -->
-
-
+    
+    
 
     <footer class="footer-home">
         <p>&copy; 2025 ASR. All rights reserved.</p>
@@ -343,10 +321,32 @@
             Follow us on <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"
                     style="color: var(--c-gold);"></i></a>, <a href="https://twitter.com" target="_blank"><i
                     class="fa-brands fa-twitter fa-xl" style="color: var(--c-gold);"></i></a>,
-            <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
-        </p>
-    </footer>
-    <section>
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram fa-xl" style="color: var(--c-gold);"></i></a>
+                </p>
+            </footer>
+            <section>
+        <!-- Result Modal -->
+        <div class="modal fade " data-bs-theme="light" id="resultModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-start ">
+                <div class="modal-content bg-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Your Game Summary</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalContent"></div>
+                        <hr>
+                        <label for="userEmail" class="form-label">Enter your email</label>
+                        <input type="email" id="userEmail" class="form-control" placeholder="your@email.com">
+                        <small class="text-muted">We will send the result to your email later.</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-success" onclick="sendEmail()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- contact modal -->
 
         <div id="myModal" class="my-modal">

@@ -42,7 +42,7 @@ li {
     padding: 10%;
 }
 
-/* set hesading and navbar and up button */
+/* set hesading and navbar2 and up button */
 
 header{
     display: flex;
@@ -89,7 +89,7 @@ header>.logo> a>img {
     border: none;
 }
 
-.navbar {
+.navbar2 {
     height: 40px;
     padding: 15px;
     border-radius: 15px;
@@ -105,19 +105,19 @@ header>.logo> a>img {
 }
 
 
-.navbar ul {
+.navbar2 ul {
     display: flex;
     list-style: none;
     gap: 20px;
 }
 
-.navbar ul li a {
+.navbar2 ul li a {
     text-decoration: none;
     color: var(--c-main-text);
     font-weight: 600;
 }
 
-.navbar select,
+.navbar2 select,
 button {
     padding: 5px;
     border-radius: 8px;
@@ -133,7 +133,7 @@ button {
     #menu{
         display: block;
     }
-    .navbar {
+    .navbar2 {
         display: none;
         flex-direction: column;
         height: auto;
@@ -142,11 +142,11 @@ button {
         animation: none;
     }
 
-    .navbar>select {
+    .navbar2>select {
         width: 100%;
     }
 
-    .navbar>button {
+    .navbar2>button {
         width: 50%;
     }
 }
@@ -401,7 +401,7 @@ label {
     max-width: 600px;
 }
 
-@media (max-width: 908px) {
+@media (max-width: 1096px) {
     .my-col {
         width: 90%;
     }
