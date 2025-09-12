@@ -19,9 +19,7 @@
 }
 
 body {
-    filter: brightness(var(--bright-ness-img));
     background: var(--c-body);
-    position: relative;
 }
 
 h1,
