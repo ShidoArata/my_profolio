@@ -174,7 +174,7 @@ function signin() {
 		email: document.getElementById('email').value
 	};
 	localStorage.sign = JSON.stringify(user);// to confirme from json to local storage
-	window.location.href = "HTML/home/home.html";
+	window.location.href = "home.html";
 
 }
 
