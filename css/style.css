@@ -90,7 +90,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(195, 224, 214);
+    background-color: rgb(195, 215, 224);
 }
 
 
@@ -99,9 +99,19 @@ body{
     display: flex;
     flex-direction: column;
     width: 40%;
-    background-color: rgb(140, 212, 212);
+    background-color: rgb(140, 177, 212);
     padding: 20px;
     border-radius: 15px;
+    animation: loop 1s infinite alternate;
+}
+
+@keyframes loop{
+    from{
+        box-shadow: 0 0 10px 5px #74afcc,0 0 10px 5px #1775c1;
+    }
+    to{
+        box-shadow: 0 0 10px 2px #1775c1 ,0 0 10px 2px #74afcc;
+    }
 }
 
 .form input{
@@ -111,7 +121,7 @@ body{
     border: hidden;
     border-radius: 10px;
     transition: all 0.2s linear;
-    background-color: rgba(191, 231, 218, 0.952);
+    background-color: rgba(226, 236, 236, 0.952);
 }
 
 .form input[type="password"]{
@@ -119,7 +129,7 @@ body{
 }
 
 .form input:hover{
-    background-color: rgb(158, 231, 207);
+    background-color: rgb(198, 212, 226);
 
 }
 
@@ -128,7 +138,7 @@ body{
     border-radius: 10px;
     border: hidden;
     cursor: pointer;
-    background-color: rgba(17, 167, 119, 0.952);
+    background-color: rgba(17, 117, 167, 0.952);
     font-size: large;
     transition: all 0.2s linear;
 
@@ -136,7 +146,7 @@ body{
 
 
 .form button:hover{
-    background-color: rgb(13, 216, 152);
+    background-color: rgb(13, 135, 216);
 
 }
 
