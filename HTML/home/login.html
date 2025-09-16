@@ -9,11 +9,11 @@
 <body class="body-signup">
     <form class="form"  onsubmit="signin(); return false;">
         <h1>sign up</h1>
-        <input required type="text" id="name" placeholder="full name">
-        <input required type="text" id="username" placeholder="username ex.momo , koko...">
-        <input required type="password" id="password" placeholder="password">
-        <input required type="tel" id="phone" placeholder="phone">
-        <input required type="email" id="email" placeholder="email">
+        <input required minlength="5" type="text" id="name" placeholder="full name">
+        <input required minlength="5" type="text" id="username" placeholder="username ex.momo , koko...">
+        <input required minlength="8" type="password" id="password" placeholder="password">
+        <input required minlength="9" maxlength="9" type="tel" id="phone" placeholder="phone">
+        <input required  type="email" id="email" placeholder="email">
         <button type="submit">sign up</button>
     </form>
     <script src="../../javascript/script.js"></script>
